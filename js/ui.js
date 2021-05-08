@@ -1,3 +1,12 @@
 const numberGeneratorDOM = document.getElementById('numberGenerator');
+const numberDOM = document.getElementById('number');
+const button = document.getElementById('button');
 
-console.log(numberGeneratorDOM);
+button.addEventListener('click', e => {
+    const number = Math.floor((Math.random() * 99) + 1);
+    numberDOM.innerText = number;
+    return;
+})
+
+
+
