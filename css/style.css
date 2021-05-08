@@ -1,0 +1,21 @@
+html {
+    scroll-behavior: smooth;
+    /* font-size: 10px; */
+}
+
+body,
+body * {
+    margin: 0;
+    padding: 0;
+    vertical-align: top;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #4682b4;
+}
+
+h1 {
+    width: 100%;
+    text-align: center;
+}
