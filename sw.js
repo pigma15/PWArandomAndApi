@@ -1,12 +1,13 @@
-const staticCacheName = 'site-static-v4';
-const dynamicCacheName = 'site-dynamic-v2';
+const staticCacheName = 'site-static-v8';
+const dynamicCacheName = 'site-dynamic-v6';
 const assets = [
     '/',
     '/index.html',
     '/js/app.js',
     '/js/ui.js',
     '/css/style.css',
-    '/img/oldComputer.png'
+    '/img/oldComputer.png',
+    '/pages/fallback.html'
 ]
 
 //install service worker
@@ -26,7 +27,7 @@ self.addEventListener('activate', evt => {
     evt.waitUntil(
         caches.keys().then(keys => {
             return Promise.all(keys
-                .filter(key => key !== staticCacheName)
+                .filter(key => key !== staticCacheName && dynamicCacheName)
                 .map(key => caches.delete(key))
             )
         })
@@ -45,6 +46,8 @@ self.addEventListener('fetch', evt => {
                     return fetchRes;
                 })
             });
+        }).catch(() => {
+            return caches.match('/pages/fallback.html');
         })
     )
 });
