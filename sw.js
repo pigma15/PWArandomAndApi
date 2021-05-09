@@ -1,11 +1,12 @@
-const staticCacheName = 'site-static-v2';
+const staticCacheName = 'site-static-v3';
 const assets = [
     '/',
     '/index.html',
     '/js/app.js',
     '/js/ui.js',
     '/css/style.css',
-    '/img/oldComputer.png'
+    '/img/oldComputer.png',
+    '/manifest.json'
 ]
 
 //install service worker
