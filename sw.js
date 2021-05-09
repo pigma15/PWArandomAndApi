@@ -13,9 +13,7 @@ const assets = [
 self.addEventListener('install', evt => {
     //console.log('installed', evt);
     caches.open(staticCacheName).then(cache => {
-        cache.addAll([
-
-        ]);
+        cache.addAll(assets);
     })
 });
 
