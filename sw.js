@@ -4,12 +4,11 @@ const assets = [
     '/index.html',
     '/js/app.js',
     '/js/ui.js',
-    '/css/style.js',
+    '/css/style.css',
     '/img/oldComputer.png'
 ]
 
 //install service worker
-
 self.addEventListener('install', evt => {
     //console.log('installed', evt);
     evt.waitUntil(
@@ -31,6 +30,7 @@ self.addEventListener('fetch', evt => {
     //console.log('fetch', evt);
     evt.respondWith(
         caches.match(evt.request).then(cacheRes => {
+            console.log(cacheRes);
             return cacheRes || fetch(evt.request);
         })
     )
