@@ -1,5 +1,5 @@
-const staticCacheName = 'site-static-v8';
-const dynamicCacheName = 'site-dynamic-v6';
+const staticCacheName = 'site-static-v10';
+const dynamicCacheName = 'site-dynamic-v9';
 const assets = [
     '/',
     '/index.html',
@@ -7,6 +7,7 @@ const assets = [
     '/js/ui.js',
     '/css/style.css',
     '/img/oldComputer.png',
+    'https://unpkg.com/axios/dist/axios.min.js',
     '/pages/fallback.html'
 ]
 
@@ -42,6 +43,7 @@ self.addEventListener('fetch', evt => {
         caches.match(evt.request).then(cacheRes => {
             return cacheRes || fetch(evt.request).then(fetchRes => {
                 return caches.open(dynamicCacheName).then(cache => {
+                    console.log(evt.request.url);
                     cache.put(evt.request.url, fetchRes.clone());
                     return fetchRes;
                 })
