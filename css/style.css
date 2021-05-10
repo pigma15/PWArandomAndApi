@@ -13,6 +13,7 @@ body * {
 
 body {
     background-color: #4682b4;
+    max-height: 100vh;
 }
 
 h1 {
@@ -40,7 +41,7 @@ a {
     place-items: center;
     margin: 5vh 5%;
     width: 90%;
-    height: calc(80vh - 70px);
+    height: calc(70vh - 70px);
     background-color: #aaa3;
     border-radius: 20px;
 }
